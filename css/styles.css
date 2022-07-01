@@ -142,6 +142,17 @@ body {
   
 }
 
+.seleccion{
+  text-align: center;
+}
+#selecTipoDeProd{ 
+  padding: 10px;
+  margin: 10px;
+  background: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  justify-content: center; 
+}
+
 #contenedor-productos {
   max-width: 1200px;
   margin: 60px auto;
@@ -168,7 +179,7 @@ p {
   margin-bottom: 20px;
   box-shadow: 2px 6px 3px 3px rgba(255, 255, 255, 0.3);
 }
-.precioProducto {
+.productos {
   font-weight: 700;
 }
 
