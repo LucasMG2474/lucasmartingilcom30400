@@ -142,15 +142,15 @@ body {
   
 }
 
-.seleccion{
-  text-align: center;
-}
 #selecTipoDeProd{ 
-  padding: 10px;
-  margin: 10px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 100%;
+  height: 70%;
   background: white;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
-  justify-content: center; 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
 }
 
 #contenedor-productos {

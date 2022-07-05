@@ -14,8 +14,6 @@
 </head>
 
 <body>
-
-
   <header>
     <div class="contenNav">
       <ul>
@@ -28,25 +26,35 @@
       </ul>
     </div>
     <h1 id="titulo" class="titulo"></h1>
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <input id="buscadorProductos" type="text" class="form-control" placeholder="Buscar Producto"
+              aria-label="Example text with button addon" aria-describedby="button-addon1">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <select id="selecTipoDeProd">
+            <option value="all">Todos</option>
+            <option value="Procesador">Procesador</option>
+            <option value="Placa Madre">Placa Madre</option>
+            <option value="Memoria">Memoria</option>
+            <option value="Gabinete">Gabinete</option>
+            <option value="Almacenamiento">Almacenamiento</option>
+            <option value="Teclado">Teclados</option>
+            <option value="Monitor">Monitor</option>
+            <option value="Mouse">Mouse</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </header>
-
-  <div class="seleccion">
-    <select id="selecTipoDeProd">
-      <option value="all">Todos</option>
-      <option value="Procesador">Procesador</option>
-      <option value="Placa Madre">Placa Madre</option>
-      <option value="Memoria">Memoria</option>
-      <option value="Gabinete">Gabinete</option>
-      <option value="Almacenamiento">Almacenamiento</option>
-      <option value="Teclado">Teclados</option>
-      <option value="Monitor">Monitor</option>
-      <option value="Mouse">Mouse</option>
-    </select>
-  </div>
 
   <main id="contenedor-productos">
 
   </main>
+
   <div class="modal-contenedor">
     <div class="modal-carrito">
       <h3>Carrito</h3>

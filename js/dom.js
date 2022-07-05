@@ -1,14 +1,15 @@
-const contenedorProductos = document.getElementById('contenedor-productos')
+const contenedorProductos = document.getElementById('contenedor-productos');
 const titulo = document.getElementById('titulo');
 const selecTipoDeProd = document.getElementById('selecTipoDeProd');
+const buscador = document.getElementById('buscadorProductos');
 titulo.innerHTML = 'ARMA TU PC!!';
 
 selecTipoDeProd.addEventListener('change', () => {
-  if (selecTipoDeProd.value == 'all') {
-    mostrarProductos(stockProductos);
-  } else {
-    mostrarProductos(stockProductos.filter(el => el.tipoDeProduccto == selecTipoDeProd.value));
-  }
+  selecTipoDeProd.value == 'all' ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el => el.tipoDeProduccto == selecTipoDeProd.value));
+})
+
+buscador.addEventListener('change', () => {
+  buscador.value == '' ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el => el.nombre == buscador.value));
 })
 
 mostrarProductos(stockProductos);
