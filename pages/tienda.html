@@ -30,8 +30,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="input-group mb-3">
-            <input id="buscadorProductos" type="text" class="form-control" placeholder="Buscar Producto"
-              aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input id="buscadorProductos" type="text" class="form-control" placeholder="Buscar Producto">
           </div>
         </div>
         <div class="col-md-6">
@@ -63,6 +62,10 @@
 
       </div>
       <p class="precioProducto">Precio total: $<span id="precioTotal"></span></p>
+      <div class="modal-footer">
+        <button id="btnFinCompras" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="false"> Ir a
+          Finalizar Compra</button>
+      </div>
     </div>
   </div>
 
@@ -74,6 +77,7 @@
   <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../js/stock.js"></script>
   <script src="../js/modal.js"></script>
   <script src="../js/dom.js"></script>

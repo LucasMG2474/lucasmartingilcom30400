@@ -2,6 +2,8 @@ const contenedorProductos = document.getElementById('contenedor-productos');
 const titulo = document.getElementById('titulo');
 const selecTipoDeProd = document.getElementById('selecTipoDeProd');
 const buscador = document.getElementById('buscadorProductos');
+const btnFinCompras = document.getElementById('btnFinCompras');
+
 titulo.innerHTML = 'ARMA TU PC!!';
 
 selecTipoDeProd.addEventListener('change', () => {
@@ -82,5 +84,9 @@ function recuperar() {
 
 recuperar();
 
-
-
+btnFinCompras.addEventListener('click', () => {
+  Swal.fire({
+    icon: 'success',
+    title: 'Compra Finalizada'
+  })
+});
