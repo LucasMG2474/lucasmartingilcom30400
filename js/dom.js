@@ -3,37 +3,38 @@ const titulo = document.getElementById('titulo');
 const selecTipoDeProd = document.getElementById('selecTipoDeProd');
 const buscador = document.getElementById('buscadorProductos');
 const btnFinCompras = document.getElementById('btnFinCompras');
+window.addEventListener('DOMContentLoaded', () => {
+  mostrarProductos()
+})
 
 titulo.innerHTML = 'ARMA TU PC!!';
 
-selecTipoDeProd.addEventListener('change', () => {
-  selecTipoDeProd.value == 'all' ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el => el.tipoDeProduccto == selecTipoDeProd.value));
-})
+const traerDatos = async () => {
+  let respuesta = await fetch("/js/stock.json")
+  return respuesta.json()
+}
 
-buscador.addEventListener('change', () => {
-  buscador.value == '' ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el => el.nombre == buscador.value));
-})
-
-mostrarProductos(stockProductos);
-
-function mostrarProductos(array) {
+async function mostrarProductos() {
+  let listaProductos = await traerDatos()
   contenedorProductos.innerHTML = ""
-  array.forEach((producto) => {
+  listaProductos.forEach((producto) => {
+    const { img, nombre, tipoDeProduccto, precio, id } = producto
     let div = document.createElement('div')
     div.classList.add('producto')
     div.innerHTML = `
-    <img src =${producto.img} alt="">
-    <h3>${producto.nombre}</h3>
-    <p class="productos">Tipo: ${producto.tipoDeProduccto}</p>
-    <p class="productos">Precio: $${producto.precio}</p>
-    <button onclick=agregarAlCarrito(${producto.id}) class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
-                `
+    <img src =${img} alt="">
+    <h3>${nombre}</h3>
+    <p class="productos">Tipo: ${tipoDeProduccto}</p>
+    <p class="productos">Precio: $${precio}</p>
+    <button onclick=agregarAlCarrito(${id}) class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+    `
     contenedorProductos.appendChild(div)
   })
 }
 
-function agregarAlCarrito(id) {
-  const productoElegido = stockProductos.find(el => el.id == id)
+async function agregarAlCarrito(id) {
+  let productos = await traerDatos()
+  const productoElegido = productos.find(el => el.id == parseInt(id))
   if (productoElegido) {
     carritoCompras.push(productoElegido)
   }
@@ -42,7 +43,7 @@ function agregarAlCarrito(id) {
 }
 
 function eliminarProducto(id) {
-  const productoEliminar = carritoCompras.find(el => el.id == id)
+  const productoEliminar = carritoCompras.find(el => el.id == parseInt(id))
   const indice = carritoCompras.indexOf(productoEliminar)
   carritoCompras.splice(indice, 1)
   actualizarCarrito()
@@ -90,3 +91,5 @@ btnFinCompras.addEventListener('click', () => {
     title: 'Compra Finalizada'
   })
 });
+
+

@@ -1,7 +1,7 @@
 const pedido = document.getElementById("pedido");
-const btnFinCompra = document.querySelector('#btnFinCompra');
+const btnPago = document.getElementById("btnPago");
 document.addEventListener('DOMContentLoaded', () => {
-  carritoCompras.forEach((producto) => {
+  stockProductos.forEach((producto) => {
     let tr = document.createElement("tr");
     let td = document.createElement("td");
     let tdprecio = document.createElement("td");
@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     tdprecio.innerHTML = `${producto.precio}`;
     pedido.append(tr, td, tdprecio);
   })
-})
-
-btnFinCompra.addEventListener('click', () => {
-  Swal.fire('Compra Finalizada');
-})
+});
+btnPago.addEventListener("click", () => {
+  Swal.fire({
+    icon: 'success',
+    title: 'Compra Finalizada'
+  })
+});
